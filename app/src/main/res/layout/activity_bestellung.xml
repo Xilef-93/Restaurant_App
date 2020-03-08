@@ -7,20 +7,16 @@
     tools:context=".bestellungActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_bestellung" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_bestellung" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -29,5 +25,47 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_dialog_email" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="271dp"
+        android:layout_height="197dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="gib deine Mailadresse ein"
+        android:visibility="visible"
+        tools:visibility="visible" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_anchor="@+id/appBarLayout"
+        app:layout_anchorGravity="center"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="center" >
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="262dp"
+            android:layout_height="439dp"
+            android:ems="10"
+            android:inputType="number"
+            android:text="Gib deine Tischnnummer ein."
+            tools:visibility="visible" />
+    </TableRow>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_anchor="@+id/appBarLayout"
+        app:layout_anchorGravity="start|top"></LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
